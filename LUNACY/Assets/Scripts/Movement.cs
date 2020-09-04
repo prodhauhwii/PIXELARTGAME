@@ -65,7 +65,7 @@ public class Movement : MonoBehaviour
         {
             if(side != coll.wallSide)
                 anim.Flip(side*-1);
-            wallGrab = true;
+            wallGrab = false;
             wallSlide = false;
         }
 
@@ -96,9 +96,9 @@ public class Movement : MonoBehaviour
             rb.gravityScale = 3;
         }
 
-        if(coll.onWall && !coll.onGround)
+        if(coll.onWall && !coll.onGround && rb.velocity.y < 0)
         {
-            if (x != 0 && !wallGrab)
+            if (x != 0 && !wallGrab && rb.velocity.y < 0)
             {
                 wallSlide = true;
                 WallSlide();
