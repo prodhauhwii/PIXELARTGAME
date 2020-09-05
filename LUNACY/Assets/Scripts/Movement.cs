@@ -105,8 +105,10 @@ public class Movement : MonoBehaviour
             }
         }
 
-        if (!coll.onWall || coll.onGround)
+        if(coll.onWall && coll.onGround)
+        {
             wallSlide = false;
+        }
 
         if (Input.GetButtonDown("Jump"))
         {
